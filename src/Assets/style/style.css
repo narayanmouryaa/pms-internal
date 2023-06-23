@@ -1,0 +1,22 @@
+.css-12i7wg6-MuiPaper-root-MuiDrawer-paper{
+    position: relative !important;
+    display: flex;
+
+}
+
+.drawer_container .css-12i7wg6-MuiPaper-root-MuiDrawer-paper{
+    top: -20px !important;
+    left: 38px !important;
+}
+
+.draw_container .css-12i7wg6-MuiPaper-root-MuiDrawer-paper{
+    
+    left:60px !important; 
+
+ }
+
+.drawers_container .css-12i7wg6-MuiPaper-root-MuiDrawer-paper{
+    left: 60px !important;
+    
+} 
+
