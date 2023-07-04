@@ -5,6 +5,9 @@ import { Search, Home, Inbox, Settings } from '@mui/icons-material';
 // import SearchIcon from '@mui/icons-material/Search';
 import NotificationsNone from '@mui/icons-material/NotificationsNone';
 // import Divider from '@mui/material/Divider';
+// import LogoutIcon from '@mui/icons-material/Logout';
+import LogoutIcon from '@mui/icons-material/Logout';
+import Nav from 'react-bootstrap/Nav';
 
 const SidenavContainer = styled(Box)`
   position: fixed;
@@ -77,7 +80,16 @@ const FixedSidenav = () => {
         >
           <NotificationsNone />
         </SidenavIcon>
+
+        <Nav.Link href="/"> 
+            <LogoutIcon style={{marginTop:'280px',marginLeft:'20px'}}/>
+            </Nav.Link> 
+
+        
+
       </SidenavContainer>
+      
+      
 
     </>
   );

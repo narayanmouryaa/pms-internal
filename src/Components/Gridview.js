@@ -11,7 +11,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import GridviewCard from './GridviewCard';
 import Divider from '@mui/material/Divider';
-import Griddrawer from './Griddrawer';
+// import Griddrawer from './Griddrawer';
 import Form from 'react-bootstrap/Form';
 import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
@@ -22,6 +22,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import SearchIcon from '@mui/icons-material/Search';
+
+import MiniDrawer from './Minidrawer';
 
 
 
@@ -54,7 +56,8 @@ const Gridview = () => {
       <Box sx={{ flexGrow: 1 }} style={{ padding: '5px' }}>
         <Grid container spacing={2}>
           <Grid item xs={3} >
-            <Griddrawer />
+            {/* <Griddrawer /> */}
+            <MiniDrawer/>
           </Grid>
 
           <Grid item xs={3}>

@@ -54,10 +54,10 @@ function BootstrapDialogTitle(props) {
                     onClick={onClose}
                     sx={{
                         position: 'absolute',
-                        right: 40,
-                        top: 60,
-                        color: (theme) => theme.palette.black,
-                        display: 'inline-block'
+                        right: 8,
+                        top: 8,
+                        color: (theme) => theme.palette.grey[500],
+                        // display: 'inline-block'
 
                     }}
                 >
@@ -117,7 +117,7 @@ export default function CustomizedDialogs({ open, setOpen }) {
                                 </BootstrapDialogTitle>
 
 
-                                <Box mt={4}>
+                                <Box mt={2}>
 
                                     <FormControl variant="standard" >
                                         <InputLabel htmlFor="input-with-icon-adornment" style={{ fontWeight: "600", fontSize: '18px' }}>

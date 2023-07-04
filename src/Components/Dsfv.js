@@ -85,6 +85,7 @@ export default function DefaultSettingForView() {
         <Container style={{ display: 'flex', justifyContent: 'center' }} >
           <Card sx={style} >
             <CardContent>
+
               <Typography sx={{ fontSize: 35, fontWeight: 600 }} >
                 <Button onClick={handleClose}><ArrowBackIosIcon /></Button>
                 Default Settings for Views
@@ -166,6 +167,8 @@ export default function DefaultSettingForView() {
                   </Box>
                 </Grid>
               </Grid>
+
+              
 
             </CardContent>
             <Button variant='contained' style={{ display: 'flex', marginLeft: '70px', width: '640px', textAlign: "center" }}>Create Space</Button>

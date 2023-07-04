@@ -21,10 +21,10 @@ const ColorButton = () => {
     };
     return (
         <>
-            <Nav.Link href="/" style={{ marginLeft: '40px' }}>
+            <Nav.Link href="Listview" style={{ marginLeft: '40px' }}>
                 <Button
                     onClick={handleClick}
-                    style={{ backgroundColor, color: 'black' }}
+                    style={{ backgroundColor, color: 'black',marginLeft:'160px' }}
                     
                 >
                     <ListIcon />List view

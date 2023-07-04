@@ -9,6 +9,8 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import '../Assets/style/style.css';
 import { Typography } from '@mui/material';
 import Nav from 'react-bootstrap/Nav';
+// import LogoutIcon from '@mui/icons-material/Logout';
+
 
 const drawerWidth = 260;
 
@@ -59,6 +61,7 @@ export default function Settingdrawer() {
                         My Settings
                     </Typography>
                 </Drawer>
+                {/* <LogoutIcon /> */}
             </Box>
         </>
     );

@@ -84,37 +84,37 @@ const style = {
 };
 
 export default function BasicModal() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
+  const [openModal, setOpenModal] = React.useState(false);
+  const handleOpen = () => setOpenModal(true);
   // const handleClose = () => setOpen(false);
 
-  const handleClose = (event, reason) => {
+  const handleCloseModal = (event, reason) => {
     if (reason !== undefined) {
-        if (reason !== "backdropClick") {
-            setOpen(false);
-        }
+      if (reason !== "backdropClick") {
+        setOpenModal(false);
+      }
     }
     else {
-        setOpen(false);
+      setOpenModal(false);
     }
-};
+  };
 
 
 
 
   return (
     <div>
-      
-      <Button onClick={handleOpen}><AddIcon style={{color:"black"}} /></Button>
+
+      <Button onClick={handleOpen}><AddIcon style={{ color: "black" }} /></Button>
 
       <BootstrapDialog
-        onClose={handleClose}
+        onClose={handleCloseModal}
         aria-labelledby="customized-dialog-title"
-        open={open}
+        open={openModal}
       >
         <Modal
-          open={open}
-          onClose={handleClose}
+          open={openModal}
+          onClose={handleCloseModal}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
           style={{ zIndex: '3000' }}
@@ -126,15 +126,14 @@ export default function BasicModal() {
                 {/* <Typography sx={{ fontSize: 40, fontWeight: 600 }} >
                   Create New Space
                 </Typography> */}
-                 <BootstrapDialogTitle sx={{ fontSize: 40, fontWeight: 600 }} id="customized-dialog-title" onClose={handleClose}>
-                                    Create New Space
-                                </BootstrapDialogTitle>
+                <BootstrapDialogTitle sx={{ fontSize: 40, fontWeight: 600 }} id="customized-dialog-title" onClose={handleCloseModal}>
+                  Create New Space
+                </BootstrapDialogTitle>
                 <Typography sx={{ fontSize: 14 }} component="div">
                   Clarity gives you the blocks and components you need to create <br /> a truly professional website.
                 </Typography>
 
                 <Box style={{ display: 'flex', justifyContent: 'space-between' }} >
-
                   <Box>
                     <Box mt={4}>
                       <FormControl variant="standard" >

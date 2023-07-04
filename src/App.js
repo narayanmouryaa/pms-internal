@@ -2,7 +2,7 @@
 import BasicCard from './Components/system';
 import NavScrollExample from "./Components/NavBar";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Fifthpage from './Components/fifthpage';
+// import Fifthpage from './Components/fifthpage';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SettingPage from './Components/settings';
 // import Mainpage from './Components/Mainpage';
@@ -11,6 +11,8 @@ import Gridview from './Components/Gridview';
 import SpaceCard from './Components/Spacecard';
 // import CustomizedDialogs from './Components/Closecreatelist';
 // import Folder from './Components/Closefolder';
+import Login from './Components/Login';
+import ForgotPassword from './Components/ForgotPassword';
 
 
 function App() {
@@ -25,14 +27,17 @@ function App() {
       <SwipeableTemporaryDrawer /> */}
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Listview />} />
+          <Route path="/" element={<Login/>} />
+
+          <Route path="Listview" element={<Listview />} />
+          <Route path="ForgotPassword" element={<ForgotPassword/>}></Route>      
           {/* <Route path="Listview" element={}></Route> */}
           <Route path="Gridview" element={<Gridview />}></Route>
           {/* <Route index element={<ResponsiveDrawer  />} ></Route>*/}
           {/* <Route path="*" element={<PersistentDrawerLeft/>}> </Route> */}
           <Route path="settings" element={<SettingPage />}></Route>
           <Route path="/" element={<NavScrollExample />} />
-          <Route path="blogs" element={<Fifthpage />}></Route>
+          {/* <Route path="blogs" element={<Fifthpage />}></Route> */}
           <Route path="drawer" element={<BasicCard />}></Route>
           <Route path="spacecard" element={<SpaceCard />}></Route>
           {/* <Route path="Createlist" element={<CustomizedDialogs />}></Route> */}

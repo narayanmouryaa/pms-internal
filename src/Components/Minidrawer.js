@@ -12,7 +12,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import '../Assets/style/style.css';
-import BasicModal from './Spacecard';
+// import BasicModal from './Spacecard';
 import { Typography, Button } from '@mui/material';
 // import { deepOrange } from '@mui/material/colors';
 // import Avatar from '@mui/material/Avatar';
@@ -25,9 +25,13 @@ import {
 } from '@mui/material';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
+import CommonModal from './Commonmodal';
+import { useState } from 'react';
+import AddIcon from '@mui/icons-material/Add';
 
 
-const drawerWidth = 280;
+
+const drawerWidth = 300;
 
 const Root = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -97,6 +101,8 @@ export default function MiniDrawer() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
 
+  const [openModal1, handleClose1] = useState(false);
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -111,7 +117,7 @@ export default function MiniDrawer() {
       <Root>
         {!open ? <button style={{
           position: "absolute",
-          top: "10px",
+          top: "75px",
           left: "45px",
           zIndex: 2500,
           color: "white",
@@ -153,7 +159,12 @@ export default function MiniDrawer() {
                   <ListItemButton>
                     <ListItemText primary={text} />
                   </ListItemButton>
-                  <Button> <BasicModal /> </Button>
+                  {/* {console.log(openModal1)} */}
+                  <Button onClick={() => handleClose1(true)}> <AddIcon style={{color:'black'}}/></Button>
+                  <CommonModal open={openModal1} handleClose={() => {
+                    handleClose1(false);
+                    // console.log("AAA")
+                  }}/> 
                 </ListItem>
               ))}
             </List>
@@ -171,6 +182,7 @@ export default function MiniDrawer() {
             <Divider />
           </Drawer>
         </Box>
+        
       </Root>
     </>
   );

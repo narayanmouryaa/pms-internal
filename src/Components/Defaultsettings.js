@@ -68,6 +68,8 @@ export default function DefaultSetting() {
         <Container style={{ display: 'flex', justifyContent: 'center' }} >
           <Card sx={style} >
             <CardContent>
+
+             <Box>
               <Typography sx={{display:'flex',fontSize: 35, fontWeight: 600 }} >
                 <Button onClick={handleClose}><ArrowBackIosIcon /></Button>
                 Default Settings for Views
@@ -130,13 +132,7 @@ export default function DefaultSetting() {
                   </Box>
                   </Grid>
                 </Grid>
-              
-
-
-
-
-
-
+                </Box>
             </CardContent>
             <Button variant='contained' style={{ width: '650px', textAlign: "center" }}> <DefaultSettingForView/>Next</Button>
           </Card>

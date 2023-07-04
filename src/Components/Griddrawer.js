@@ -108,7 +108,7 @@ export default function Griddrawer() {
   return (
     <>
 <Root>
-      {!open ? <button style={{
+       {!open ? <button style={{
         position: "absolute",
         top: "75px",
         left: "45px",
@@ -116,7 +116,7 @@ export default function Griddrawer() {
         color: "white",
         border: 'none',
         backgroundColor: 'blue'
-      }}
+      }} 
         onClick={handleDrawerOpen}><ChevronRightIcon />  </button> : null}
 
       <Box sx={{ display: 'flex' }}>
