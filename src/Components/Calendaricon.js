@@ -88,21 +88,21 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import { Menu } from '@mui/material';
 // import zIndex from '@mui/material/styles/zIndex';
 // import './CalendarIcon.css';
 
 const CalendarIcon = () => {
   const [selectedDate, setSelectedDate] = useState(null);
-  const [showCalendar, setShowCalendar] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const handleDateSelect = (date) => {
     setSelectedDate(date);
-    setShowCalendar(false);
+    setAnchorEl(null)
   };
 
-  const toggleCalendar = () => {
-    setShowCalendar(!showCalendar);
-    
+  const toggleCalendar = (el) => {
+    setAnchorEl(el.currentTarget)
   };
 
   return (
@@ -119,14 +119,13 @@ const CalendarIcon = () => {
         <CalendarMonthIcon style={{borderRadius:'50%',border:'1px solid black',fontSize:'35px',padding:'5px'}}/>
         </button>
       )}
-
-      {showCalendar && (
-        <DatePicker
+      <Menu open={!!anchorEl} anchorEl={anchorEl} sx={{zIndex: 10000, padding: 0}} onClose={el => setAnchorEl(null)}>
+      <DatePicker
           selected={selectedDate}
           onChange={handleDateSelect}
           inline
         />
-      )}
+      </Menu>
     </div>
   );
 };

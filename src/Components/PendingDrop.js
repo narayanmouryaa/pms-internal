@@ -5,25 +5,21 @@ import React, { useState } from 'react';
 // import { Divider } from '@mui/material';
 import '../Assets/style/style.css';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { Typography, Box,Divider } from '@mui/material';
+import { Typography, Box,Divider, Menu, MenuItem } from '@mui/material';
 
 
 const IconDropdown = () => {
   const [selectedFlag, setSelectedFlag] = useState(null);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const handleFlagSelect = (flag) => {
     setSelectedFlag(flag);
-    setIsDropdownOpen(false);
-  };
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+    setAnchorEl(false);
   };
 
   return (
     <div className="flag-icon-drpdown">
-      <button className="flag-icon-buton" onClick={toggleDropdown}>
+      <button className="flag-icon-buton" onClick={(el) => setAnchorEl(el.currentTarget)}>
         {selectedFlag ? (
           <span className="selectd-flag">{selectedFlag}</span>
         ) : (
@@ -36,54 +32,46 @@ const IconDropdown = () => {
           </>
         )}
       </button>
-      {isDropdownOpen && (
-        <div className="drpdown">
-          <ul>
-            <li onClick={() => handleFlagSelect(<Box style={{ color: 'white', marginLeft: '30px', marginTop: '70px', display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '150px', height: '30px', backgroundColor: 'green', borderRadius: '5px' }}>
+        <Menu open={!!anchorEl} anchorEl={anchorEl} sx={{zIndex: 10000}}  onClose={() => setAnchorEl(null)}>
+            <MenuItem onClick={() => handleFlagSelect(<Box style={{ color: 'white', marginLeft: '30px', marginTop: '70px', display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '150px', height: '30px', backgroundColor: 'green', borderRadius: '5px' }}>
               <Typography >Complete</Typography>
               <KeyboardArrowDownIcon style={{color:'black', backgroundColor: 'white' }} />
             </Box>)}>
               <Box className='Box1' style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '150px', height: '30px', backgroundColor: 'green', color: 'white', borderRadius: '5px' }}>
                 <Typography >Complete</Typography>
               </Box>
-            </li>
-            {/* <li onClick={() => handleFlagSelect(<AssistantPhotoIcon style={{color:'orange',border:'2px solid orange',borderRadius:'50%',fontSize:'40px',padding:'5px'}} />)}>
+            </MenuItem>
+            {/* <MenuItem onClick={() => handleFlagSelect(<AssistantPhotoIcon style={{color:'orange',border:'2px solid orange',borderRadius:'50%',fontSize:'40px',padding:'5px'}} />)}>
               <AssistantPhotoIcon style={{color:'orange',marginRight:'10px'}} />
              Pending
-            </li> */}
-            <li onClick={() => handleFlagSelect(<Box style={{ marginLeft: '30px', marginTop: '70px', display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '150px', height: '30px', backgroundColor: '#ff9100', borderRadius: '5px' }}>
+            </MenuItem> */}
+            <MenuItem onClick={() => handleFlagSelect(<Box style={{ marginLeft: '30px', marginTop: '70px', display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '150px', height: '30px', backgroundColor: '#ff9100', borderRadius: '5px' }}>
               <Typography >Pending</Typography>
               <KeyboardArrowDownIcon style={{ backgroundColor: 'white' }} />
             </Box>)}>
               <Box className='Box1' style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '150px', height: '30px', backgroundColor: '#ff9100', borderRadius: '5px' }}>
                 <Typography >Pending</Typography>
               </Box>
-            </li>
-            {/* <li onClick={() => handleFlagSelect(<AssistantPhotoIcon style={{color:'blue',border:'2px solid blue',borderRadius:'50%',fontSize:'40px',padding:'5px'}} />)}>
+            </MenuItem>
+            {/* <MenuItem onClick={() => handleFlagSelect(<AssistantPhotoIcon style={{color:'blue',border:'2px solid blue',borderRadius:'50%',fontSize:'40px',padding:'5px'}} />)}>
               <AssistantPhotoIcon style={{color:'blue',marginRight:'10px'}} />
               In Progress 
-            </li> */}
+            </MenuItem> */}
 
-            <li onClick={() => handleFlagSelect(<Box style={{ marginLeft: '30px', marginTop: '70px', display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '150px', height: '30px',backgroundColor: 'grey', borderRadius: '5px' }}>
+            <MenuItem onClick={() => handleFlagSelect(<Box style={{ marginLeft: '30px', marginTop: '70px', display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '150px', height: '30px',backgroundColor: 'grey', borderRadius: '5px' }}>
               <Typography >In Progress</Typography>
               <KeyboardArrowDownIcon style={{ backgroundColor: 'white' }} />
             </Box>)}>
               <Box className='Box1' style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '150px',height:'30px', backgroundColor: 'grey', borderRadius: '5px' }}>
                 <Typography >In Progress</Typography>
               </Box>
-            </li>
-            {/* <li onClick={() => handleFlagSelect(<AssistantPhotoIcon style={{ color: 'grey', border: '2px solid grey', borderRadius: '50%', fontSize: '40px', padding: '5px' }} />)}>
+            </MenuItem>
+            {/* <MenuItem onClick={() => handleFlagSelect(<AssistantPhotoIcon style={{ color: 'grey', border: '2px solid grey', borderRadius: '50%', fontSize: '40px', padding: '5px' }} />)}>
               <AssistantPhotoIcon style={{ color: 'grey', marginRight: '10px' }} />
               Removed
-            </li> */}
+            </MenuItem> */}
             <Divider />
-            {/* <li onClick={() => handleFlagSelect('')}>
-              <HighlightOffIcon style={{ color: 'grey', marginRight: '10px' }} />
-              Empty
-            </li> */}
-          </ul>
-        </div>
-      )}
+        </Menu>
     </div>
   );
 };

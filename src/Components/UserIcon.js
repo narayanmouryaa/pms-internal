@@ -1,21 +1,17 @@
 import React, { useState } from 'react';
-// import './PersonIcon.css';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { Menu, MenuItem } from '@mui/material';
 
 
 const PersonIcon = () => {
-  const [isModelOpen, setIsModelOpen] = useState(false);
+  const [modelAnchor, setModalAnchor] = useState(null);
   const [selectedPerson, setSelectedPerson] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredPersons, setFilteredPersons] = useState([]);
 
-  const toggleModel = () => {
-    setIsModelOpen(!isModelOpen);
-  };
-
   const handlePersonSelect = (person) => {
     setSelectedPerson(person);
-    setIsModelOpen(false);
+    setModalAnchor(null);
   };
 
   const handleSearchChange = (event) => {
@@ -38,21 +34,20 @@ const PersonIcon = () => {
   const renderPersonIcons = () => {
     const personsToRender = searchQuery ? filteredPersons : personData;
     return personsToRender.map((person) => (
-      <div 
-      
+      <MenuItem 
         key={person.id}
         className="person-item"
         onClick={() => handlePersonSelect(person)}
       >
         <img  style={{width:'40px',height:'40px',borderRadius:'50%',margin:'5px'}} src={person.icon} alt={person.name} />
         <span style={{cursor:'pointer'}}>{person.name}</span>
-      </div>
+      </MenuItem>
     ));
   };
 
   return (
     <div className="person-icon-container">
-      <div className="person-icon" onClick={toggleModel}>
+      <div className="person-icon" onClick={(el) => setModalAnchor(el.currentTarget)}>
         {selectedPerson ? (
             <>
           <img style={{width:'40px',height:'40px',borderRadius:'50%'}} src={selectedPerson.icon} alt="SP" />
@@ -64,9 +59,13 @@ const PersonIcon = () => {
           
         )}
       </div>
-      {isModelOpen && (
-        <div className="person-model" style={{marginTop:'5px',border:'1px solid black',padding:'5px',backgroundColor:'smokywhite'}}>
-          <div className="search-bar" style={{margin:'5px'}}>
+      <Menu
+        open={!!modelAnchor}
+        anchorEl={modelAnchor}
+        sx={{zIndex: 100000}}
+        onClose={() => setModalAnchor(null)}
+      >
+      <div className="search-bar" style={{margin:'5px'}}>
             <input
               type="text"
               placeholder="Search by name"
@@ -74,9 +73,8 @@ const PersonIcon = () => {
               onChange={handleSearchChange}
             />
           </div>
-          <div className="person-icons">{renderPersonIcons()}</div>
-        </div>
-      )}
+          {renderPersonIcons()}
+      </Menu>
     </div>
   );
 };
