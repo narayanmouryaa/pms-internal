@@ -1,38 +1,44 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AddIcon from '@mui/icons-material/Add';
 import { Menu, MenuItem } from '@mui/material';
+import CancelIcon from '@mui/icons-material/Cancel';
 
+const personData = [
+  { id: 1, name: 'John Doe', icon: "./Images/Person1.jpg" },
+  { id: 2, name: 'Jane Smith', icon: './Images/Person2.jpg' },
+  { id: 3, name: 'David Johnson', icon: './Images/Person3.jpg' },
+  { id: 4, name: 'Jass', icon: './Images/Person4.jpg' }
+];
 
 const PersonIcon = () => {
   const [modelAnchor, setModalAnchor] = useState(null);
-  const [selectedPerson, setSelectedPerson] = useState(null);
+  const [selectedPersons, setSelectedPersons] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredPersons, setFilteredPersons] = useState([]);
+  const [filteredPersons, setFilteredPersons] = useState(personData);
 
   const handlePersonSelect = (person) => {
-    setSelectedPerson(person);
+    setSelectedPersons([...selectedPersons, person]);
     setModalAnchor(null);
   };
+ 
+  const handleUnselectClick = (event, person) => {
+    setSelectedPersons(prevState => prevState.filter(user => user.id !== person.id))
+  }
 
   const handleSearchChange = (event) => {
     const query = event.target.value;
     setSearchQuery(query);
-
-    const filtered = personData.filter((person) =>
-      person.name.toLowerCase().includes(query.toLowerCase())
-    );
-    setFilteredPersons(filtered);
   };
 
-  const personData = [
-    { id: 1, name: 'John Doe', icon: "./Images/Person1.jpg" },
-    { id: 2, name: 'Jane Smith', icon: './Images/Person2.jpg' },
-    { id: 3, name: 'David Johnson', icon: './Images/Person3.jpg' },
-    { id: 4, name: 'Jass', icon: './Images/Person4.jpg' }
-  ];
+  useEffect(() => {
+    setFilteredPersons(
+      personData.filter((person) => !selectedPersons.map(({id}) => id).includes(person.id) && person.name.toLowerCase().includes(searchQuery.toLowerCase()))
+    )
+  }, [selectedPersons, searchQuery, setFilteredPersons])
 
   const renderPersonIcons = () => {
-    const personsToRender = searchQuery ? filteredPersons : personData;
+    const personsToRender = filteredPersons;
     return personsToRender.map((person) => (
       <MenuItem
         key={person.id}
@@ -48,16 +54,20 @@ const PersonIcon = () => {
   return (
     <div className="person-icon-container">
       <div className="person-icon" onClick={(el) => setModalAnchor(el.currentTarget)}>
-        {selectedPerson ? (
-          <>
-            <img style={{ width: '40px', height: '40px', borderRadius: '50%' }} src={selectedPerson.icon} alt="SP" />
-            <span style={{ position: 'absolute', cursor: 'pointer' }} >+</span>
-
-          </>
-        ) : (
-
-          <AccountCircleIcon style={{ height: '40px', width: '40px' }} />
-
+        {selectedPersons.length > 0 ? 
+        <>
+          {selectedPersons.map((selectedPerson) => 
+          <span style={{position: 'relative', marginRight: 8}}>
+          <img style={{width:'40px',height:'40px',borderRadius:'50%'}} src={selectedPerson.icon} alt="SP" />
+          <span style={{top: -15, position: 'absolute', right: -10}} onClick={(event) => handleUnselectClick(event, selectedPerson)}>
+            <CancelIcon color='action' />
+          </span>
+          </span>
+        )}
+          <AddIcon />
+        </>
+         : (
+          <AccountCircleIcon/>
         )}
       </div>
       <Menu

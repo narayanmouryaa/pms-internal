@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import { Menu } from '@mui/material';
+import { Button, Menu } from '@mui/material';
 // import './CalendarIcon.css';
 
 const CalendarIcon = () => {
@@ -11,7 +11,6 @@ const CalendarIcon = () => {
 
   const handleDateSelect = (date) => {
     setSelectedDate(date);
-    setAnchorEl(null)
   };
 
   const toggleCalendar = (el) => {
@@ -27,12 +26,9 @@ const CalendarIcon = () => {
           <h5 style={{ marginBottom: '0px', fontSize: '11px', color: 'grey' }}>START DATE</h5>
           <button style={{ border: 'none', backgroundColor: 'white' }} className="change-date-btn" onClick={toggleCalendar}>
             <p style={{ fontSize: '15px' }}>{selectedDate.toLocaleDateString()}</p>
+            <p>{selectedDate.toLocaleTimeString()}</p>
           </button>
            </div>
-
-           {/* <div>
-            <h5 style={{ marginBottom: '0px', fontSize: '11px', color: 'grey' }}>TIME</h5>
-           </div> */}
            </>
           
        
@@ -41,15 +37,7 @@ const CalendarIcon = () => {
           <CalendarMonthIcon style={{ borderRadius: '50%', border: '1px solid black', fontSize: '35px', padding: '5px' }} />
         </button>
       )}
-      <Menu open={!!anchorEl} anchorEl={anchorEl} sx={{ zIndex: 10000, padding: 0 }} onClose={el => setAnchorEl(null)}>
-        {/* <DatePicker
-          selected={selectedDate}
-          timeFormat="HH:mm"
-          timeIntervals={15}
-          timeCaption="Time"
-          onChange={handleDateSelect}
-          inline
-        /> */}
+      <Menu open={!!anchorEl} anchorEl={anchorEl} sx={{ zIndex: 10000, padding: 0 }}>
         <DatePicker
           selected={selectedDate}
           onChange={handleDateSelect}
@@ -60,6 +48,11 @@ const CalendarIcon = () => {
           dateFormat="MMMM d, yyyy h:mm aa"
           inline
         />
+        <div>
+          <Button onClick={() => setAnchorEl(null)}>
+            Submit
+          </Button>
+        </div>
       </Menu>
     </div>
   );
