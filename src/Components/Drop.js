@@ -26,7 +26,7 @@ const FlagIconDropdown = () => {
         {selectedFlag ? (
           <>
           <span className="selected-flag">{selectedFlag}</span>
-          <span style={{position: 'absolute', right: 10, top: -10, border: 'none'}} onClick={handleCloseClick}>
+          <span style={{position: 'absolute', right: 8, top: -10, border: 'none'}} onClick={handleCloseClick}>
             <HighlightOffTwoToneIcon fontSize='small' />
           </span>
           </>

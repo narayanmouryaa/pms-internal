@@ -25,22 +25,22 @@ const PersonIcon = () => {
   };
 
   const personData = [
-    { id: 1, name: 'John Doe', icon:"./Images/Person1.jpg" },
+    { id: 1, name: 'John Doe', icon: "./Images/Person1.jpg" },
     { id: 2, name: 'Jane Smith', icon: './Images/Person2.jpg' },
     { id: 3, name: 'David Johnson', icon: './Images/Person3.jpg' },
-   
+    { id: 4, name: 'Jass', icon: './Images/Person4.jpg' }
   ];
 
   const renderPersonIcons = () => {
     const personsToRender = searchQuery ? filteredPersons : personData;
     return personsToRender.map((person) => (
-      <MenuItem 
+      <MenuItem
         key={person.id}
         className="person-item"
         onClick={() => handlePersonSelect(person)}
       >
-        <img  style={{width:'40px',height:'40px',borderRadius:'50%',margin:'5px'}} src={person.icon} alt={person.name} />
-        <span style={{cursor:'pointer'}}>{person.name}</span>
+        <img style={{ width: '40px', height: '40px', borderRadius: '50%', margin: '5px' }} src={person.icon} alt={person.name} />
+        <span style={{ cursor: 'pointer' }}>{person.name}</span>
       </MenuItem>
     ));
   };
@@ -49,31 +49,32 @@ const PersonIcon = () => {
     <div className="person-icon-container">
       <div className="person-icon" onClick={(el) => setModalAnchor(el.currentTarget)}>
         {selectedPerson ? (
-            <>
-          <img style={{width:'40px',height:'40px',borderRadius:'50%'}} src={selectedPerson.icon} alt="SP" />
-          
+          <>
+            <img style={{ width: '40px', height: '40px', borderRadius: '50%' }} src={selectedPerson.icon} alt="SP" />
+            <span style={{ position: 'absolute', cursor: 'pointer' }} >+</span>
+
           </>
         ) : (
-          
-          <AccountCircleIcon/>
-          
+
+          <AccountCircleIcon style={{ height: '40px', width: '40px' }} />
+
         )}
       </div>
       <Menu
         open={!!modelAnchor}
         anchorEl={modelAnchor}
-        sx={{zIndex: 100000}}
+        sx={{ zIndex: 100000 }}
         onClose={() => setModalAnchor(null)}
       >
-      <div className="search-bar" style={{margin:'5px'}}>
-            <input
-              type="text"
-              placeholder="Search by name"
-              value={searchQuery}
-              onChange={handleSearchChange}
-            />
-          </div>
-          {renderPersonIcons()}
+        <div className="search-bar" style={{ margin: '5px' }}>
+          <input
+            type="text"
+            placeholder="Search by name"
+            value={searchQuery}
+            onChange={handleSearchChange}
+          />
+        </div>
+        {renderPersonIcons()}
       </Menu>
     </div>
   );
