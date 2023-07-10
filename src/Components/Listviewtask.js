@@ -7,12 +7,15 @@ import PersonIcon from './UserIcon';
 // import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import FlagIconDropdown from './Drop';
+// import { Nav } from 'react-bootstrap';
+// import TaskModal from './Taskmodal'
 
 
 
 const SubtaskList = () => {
     const [subtasks, setSubtasks] = useState([]);
     const [newSubtask, setNewSubtask] = useState('');
+    // const [openModal, setOpenModal] = React.useState(false);
 
 
     const handleAddSubtask = () => {
@@ -22,16 +25,17 @@ const SubtaskList = () => {
         }
     };
 
-    const handleDeleteSubtask = (index) => {
-        const updatedSubtasks = subtasks.filter((_, i) => i !== index);
-        setSubtasks(updatedSubtasks);
-    };
+    // const handleDeleteSubtask = (index) => {
+    //     const updatedSubtasks = subtasks.filter((_, i) => i !== index);
+    //     setSubtasks(updatedSubtasks);
+    // };
 
 
 
 
     return (
-        <Box style={{ display: 'flex', alignItems: 'center', width: '700px' }}>
+        <>
+        <Box style={{ display: 'flex', alignItems: 'center'}}>
             <div>
                 <List>
                     {subtasks.map((subtask, index) => (
@@ -40,7 +44,7 @@ const SubtaskList = () => {
 
                             <FormControlLabel
                                 control={<Checkbox />}
-                                onChange={() => handleDeleteSubtask(index)}
+                                // onChange={() => handleDeleteSubtask(index)}
 
                             />
                             <Avatar sx={{ height: 30, width: 30 }}>A</Avatar>
@@ -53,17 +57,34 @@ const SubtaskList = () => {
                     ))}
                 </List>
                 <TextField
-                    label="Add Subtask"
-                    style={{ width: '700px' }}
-                    value={newSubtask}
+                    label="Add Task"
+                    style={{ width: '1100px',borderRadius:'0px' }}
+
+                //     inputProps={{
+                //     endAdornment :(
+                //         <>
+                //         <Nav.Link href="#" onClick={() => setOpenModal(true)}>
+                //      <Button style={{ color: 'black', display: 'inline' }} >
+                //        value={newSubtask}
+                //      </Button>
+                //    </Nav.Link> 
+                // </>
+
+                //     )
+                // }}
+                    
+                    
+
+                 value={newSubtask}
+
                     onChange={(e) => setNewSubtask(e.target.value)}
                     InputProps={{
                         endAdornment: (
                             <>
 
-                                <Tooltip title="Start Date" placement="top">
+                                {/* <Tooltip title="Start Date" placement="top">
                                     <CalendarIcon  />
-                                </Tooltip>
+                                </Tooltip> */}
 
                                 <Tooltip title="Due Date" placement="top">
                                     <CalendarIcon />
@@ -71,7 +92,7 @@ const SubtaskList = () => {
 
                                 <PersonIcon />
                                 <FlagIconDropdown/>
-                                <Button variant="contained" onClick={handleAddSubtask} sx={{ padding: '10px' }}>
+                                <Button variant="contained" onClick={handleAddSubtask} sx={{ padding: '10px' ,borderRadius:'0px'}}>
                     Save
                 </Button>
 
@@ -84,7 +105,12 @@ const SubtaskList = () => {
 
                 
             </div>
+
         </Box>
+        {/* <TaskModal open={openModal} setOpen={setOpenModal} /> */}
+
+
+        </>
     );
 };
 

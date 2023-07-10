@@ -4,21 +4,22 @@
 
 }
 
-.drawer_container .css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
+/* .drawer_container .css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
 
   left: 38px !important;
+} */
+
+ .draw_container .css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
+
+  left: 60px !important; 
 }
 
-.draw_container .css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
 
-  left: 60px !important;
-
-}
 
 .drawers_container .css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
   left: 60px !important;
 
-}
+} */
 
 
 .flag-icon-dropdown {

@@ -3,7 +3,6 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import { Button, Menu } from '@mui/material';
-// import './CalendarIcon.css';
 
 const CalendarIcon = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -19,17 +18,14 @@ const CalendarIcon = () => {
 
   return (
     <div className="calendar-icon-container">
-      {/* {selectedDate ? (
-        <> */}
-        <div>
-          
-          
+      
+        <div>         
           <button style={{ border: 'none', backgroundColor: 'white' }} className="change-date-btn" onClick={toggleCalendar}>
            {selectedDate ? (
             <>
             <h5 style={{ marginBottom: '0px', fontSize: '11px', color: 'grey' }}>START DATE</h5>
-            <p style={{ fontSize: '15px' }}>{selectedDate.toLocaleDateString()}</p>
-            <p style={{}}>{selectedDate.toLocaleTimeString()}</p>
+            <p style={{ fontSize: '15px',marginBottom:'0px' }}>{selectedDate.toLocaleDateString()}</p>
+            <p style={{fontSize:'12px'}}>{selectedDate.toLocaleTimeString()}</p>
             </>
             
            ):(
@@ -38,14 +34,9 @@ const CalendarIcon = () => {
             
           </button>
            </div>
-           {/* </> */}
-          
-       
-      {/* ) : (
-        <button style={{ border: 'none', backgroundColor: 'white' }} className="calendar-icon" onClick={toggleCalendar}>
-          <CalendarMonthIcon style={{ borderRadius: '50%', border: '1px solid black', fontSize: '35px', padding: '5px' }} />
-        </button>
-      )} */}
+           
+         
+     
       <Menu open={!!anchorEl} anchorEl={anchorEl} sx={{ zIndex: 10000, padding: 0 }}>
         <DatePicker
           selected={selectedDate}

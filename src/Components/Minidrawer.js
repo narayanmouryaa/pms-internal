@@ -122,7 +122,8 @@ export default function MiniDrawer() {
           zIndex: 2500,
           color: "white",
           border: 'none',
-          backgroundColor: 'blue'
+          backgroundColor: 'blue',
+          
         }}
           onClick={handleDrawerOpen}><ChevronRightIcon />  </button> : null}
 
@@ -137,7 +138,7 @@ export default function MiniDrawer() {
                 width: drawerWidth,
                 boxSizing: 'border-box',
                 position: 'absolute',
-                // border:"1px solid grey",
+                left:'38px',
                 height: '100vh',
               },
             }}

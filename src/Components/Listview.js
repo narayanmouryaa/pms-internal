@@ -1,9 +1,9 @@
 import React from 'react';
 import NavbarFixed from './NavBar';
 import ResponsiveDrawer from "./Fixedsidenav";
-import { styled } from '@mui/material/styles';
+// import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
+// import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
@@ -12,22 +12,25 @@ import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import { Button } from '@mui/material';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import SquareIcon from '@mui/icons-material/Square';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import { yellow } from '@mui/material/colors';
+// import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+// import { yellow } from '@mui/material/colors';
 import TaskModal from './Taskmodal'
 import { Nav } from 'react-bootstrap';
-// import LogoutIcon from '@mui/icons-material/Logout';
+
+import SubtaskList from './Listviewtask';
 
 
 
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
+// const Item = styled(Paper)(({ theme }) => ({
+//   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+//   ...theme.typography.body2,
+//   padding: theme.spacing(1),
+//   textAlign: 'center',
+//   color: theme.palette.text.secondary,
+// }));
+
+
 
 
 
@@ -43,7 +46,7 @@ const Listview = () => {
       <Box sx={{ flexGrow: 1 }} style={{ padding: '5px' }}>
         <Grid container spacing={2}>
           <Grid item xs={3} >
-            {/* <Griddrawer /> */}
+
             <MiniDrawer />
           </Grid>
           <Grid item xs={9}>
@@ -57,8 +60,8 @@ const Listview = () => {
               <Typography style={{ marginTop: '30px' }} >  <FormatListBulletedIcon /> List 1</Typography>
 
               <Box style={{ display: 'flex', alignItems: "center" }} >
-                <SquareIcon style={{ color: 'yellow' }} />
-                < PersonAddIcon style={{ marginLeft: '10px', color: 'white', backgroundColor: 'black', borderRadius: '50%' }} />
+                <SquareIcon style={{ color: '' }} />
+                <PersonAddIcon style={{ marginLeft: '10px', color: 'white', backgroundColor: 'black', borderRadius: '50%' }} />
                 <Nav.Link href="#" onClick={() => setOpenModal(true)}>
                   <Button style={{ color: 'black', display: 'inline' }} >
                     Task one
@@ -66,7 +69,7 @@ const Listview = () => {
                 </Nav.Link>
 
               </Box>
-              <Box style={{ display: 'flex', alignItems: "center" }} >
+              {/* <Box style={{ display: 'flex', alignItems: "center" }} >
                 <SquareIcon style={{ color: 'yellow' }} />
                 < PersonAddIcon style={{ marginLeft: '10px', color: 'white', backgroundColor: 'black', borderRadius: '50%' }} />
                 <Nav.Link href="#" onClick={() => setOpenModal(true)}>
@@ -75,18 +78,12 @@ const Listview = () => {
                   </Button>
                 </Nav.Link>
 
-              </Box>
-
-
-              {/* <Box>
-                <SquareIcon style={{ color: 'yellow' }} />
-                < PersonAddIcon style={{ marginLeft: '10px', color: 'white', backgroundColor: 'black', borderRadius: '50%' }} />
-                <Button style={{ color: 'black' }}>
-                  Task two
-                </Button>
               </Box> */}
 
-              <Box style={{ display: 'flex', justifyContent: "space-between", alignItems: 'center', border: '1px solid blue', float: 'left', width: '70vw', height: '6vh' }}>
+
+
+
+              {/* <Box style={{ display: 'flex', justifyContent: "space-between", alignItems: 'center', border: '1px solid blue', float: 'left', width: '70vw', height: '6vh' }}>
                 <Box style={{}}>
                   <SquareIcon style={{ marginLeft: '10px', color: 'yellow' }} />
                   <input type="text" placeholder='Enter Task' />
@@ -103,17 +100,21 @@ const Listview = () => {
                   </Button>
                 </Box>
 
-              </Box>
+              </Box> */}
+              <SubtaskList/>
             </Box>
+
+            
           </Grid>
 
         </Grid>
-        {/* <LogoutIcon/> */}
+
 
       </Box >
       <TaskModal open={openModal} setOpen={setOpenModal} />
     </>
   );
 };
+
 
 export default Listview;

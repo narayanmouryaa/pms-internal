@@ -141,13 +141,7 @@ export default function TaskModal({ open, setOpen }) {
                       <IconDropdown />
                     </Box>
                     <Box style={{ marginTop: '30px', marginLeft: '10px' }}>
-                      {/* <AvatarGroup max={4}>
-                        <Avatar alt="Remy Sharp" src="/Images/man1.jpg" />
-                        <Avatar alt="Travis Howard" src="/Images/man1.jpg" />
-                        <Avatar alt="Cindy Baker" src="/Images/man1.jpg" />
-                        <Avatar alt="Agnes Walker" src="/Images/man1.jpg" />
-                        <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" />
-                      </AvatarGroup> */}
+                      
                       <PersonIcon/>
                     </Box>
                     <Box style={{ marginTop: '35px', marginLeft: '30px' }}>
@@ -257,24 +251,13 @@ export default function TaskModal({ open, setOpen }) {
                     <Box mt={4} ml={4}>
                    <SubtaskList/>
                     </Box>
-
-
-
-
-
-
                   </Box>
-
-
-
-
-
-
 
                 </Box>
 
+
                 <Box style={{ height: '585px', width: '700px' }}>
-                  <Box style={{ display: 'flex', marginTop: '20px', marginLeft: '20px' }} >
+                  <Box style={{ display: 'flex', marginTop: '10px', marginLeft: '20px',height:'60px'}} >
                     <Typography style={{ fontSize: '11px', color: 'grey' }}>
                       CREATED  <br /> <span style={{ color: 'blue' }}>june 28,00:38 PM</span>
                     </Typography>
@@ -296,7 +279,7 @@ export default function TaskModal({ open, setOpen }) {
                     </Box>
 
                   </Box>
-                  <Divider component='ul' clearing style={{ marginTop: '11px' }} />
+                  <Divider component='ul' clearing style={{ marginTop: '22px' }} />
 
 
                   <Box style={{ display: 'flex', justifyContent: 'space-between', marginLeft: '20px', marginRight: '20px', marginTop: '70px' }}>
