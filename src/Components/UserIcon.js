@@ -52,7 +52,7 @@ const PersonIcon = () => {
   };
 
   return (
-    <div className="person-icon-container">
+    <div className="person-icon-container" style={{cursor:'pointer'}}>
       <div className="person-icon" onClick={(el) => setModalAnchor(el.currentTarget)}>
         {selectedPersons.length > 0 ? 
         <>
@@ -67,7 +67,7 @@ const PersonIcon = () => {
           <AddIcon />
         </>
          : (
-          <AccountCircleIcon/>
+          <AccountCircleIcon style={{fontSize:'45px'}}/>
         )}
       </div>
       <Menu

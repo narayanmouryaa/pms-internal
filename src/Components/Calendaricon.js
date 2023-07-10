@@ -19,24 +19,33 @@ const CalendarIcon = () => {
 
   return (
     <div className="calendar-icon-container">
-      {selectedDate ? (
-        <>
+      {/* {selectedDate ? (
+        <> */}
         <div>
           
-          <h5 style={{ marginBottom: '0px', fontSize: '11px', color: 'grey' }}>START DATE</h5>
+          
           <button style={{ border: 'none', backgroundColor: 'white' }} className="change-date-btn" onClick={toggleCalendar}>
+           {selectedDate ? (
+            <>
+            <h5 style={{ marginBottom: '0px', fontSize: '11px', color: 'grey' }}>START DATE</h5>
             <p style={{ fontSize: '15px' }}>{selectedDate.toLocaleDateString()}</p>
-            <p>{selectedDate.toLocaleTimeString()}</p>
+            <p style={{}}>{selectedDate.toLocaleTimeString()}</p>
+            </>
+            
+           ):(
+            <CalendarMonthIcon style={{ borderRadius: '50%', border: '1px solid black', fontSize: '35px', padding: '5px' }} />
+           )}
+            
           </button>
            </div>
-           </>
+           {/* </> */}
           
        
-      ) : (
+      {/* ) : (
         <button style={{ border: 'none', backgroundColor: 'white' }} className="calendar-icon" onClick={toggleCalendar}>
           <CalendarMonthIcon style={{ borderRadius: '50%', border: '1px solid black', fontSize: '35px', padding: '5px' }} />
         </button>
-      )}
+      )} */}
       <Menu open={!!anchorEl} anchorEl={anchorEl} sx={{ zIndex: 10000, padding: 0 }}>
         <DatePicker
           selected={selectedDate}

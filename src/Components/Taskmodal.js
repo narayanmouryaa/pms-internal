@@ -10,7 +10,7 @@ import Card from '@mui/material/Card';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import { Divider, Button } from '@mui/material';
+import { Divider} from '@mui/material';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 // import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 // import Avatar from '@mui/material/Avatar';
@@ -19,9 +19,9 @@ import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import SquareIcon from '@mui/icons-material/Square';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+// import PersonAddIcon from '@mui/icons-material/PersonAdd';
+// import SquareIcon from '@mui/icons-material/Square';
+// import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import TextEditor from './TextEditor';
 import FlagIconDropdown from './Drop';
 import IconDropdown from './PendingDrop';
@@ -30,6 +30,7 @@ import CalendarIcon from './Calendaricon';
 import Stopwatch from './TimeTracker';
 import CalendarDueIcon from './Calendarduedate';
 import PersonIcon from './UserIcon';
+import SubtaskList from './subtask';
 
 const style = {
   position: 'absolute',
@@ -188,7 +189,7 @@ export default function TaskModal({ open, setOpen }) {
                     </Box>
 
 
-                    <Box mt={4} ml={4}>
+                     <Box mt={4} ml={4}>
 
                       <FormControl variant="standard" >
                         <InputLabel htmlFor="input-with-icon-adornment" style={{ fontWeight: "500", fontSize: '20px', color: 'black' }}>
@@ -207,6 +208,11 @@ export default function TaskModal({ open, setOpen }) {
                         />
                       </FormControl>
                     </Box>
+
+
+
+
+{/* 
                     <Box mt={4} ml={4}>
                       <Typography style={{ fontSize: '15px' }}>
                         SUBTASKS
@@ -243,14 +249,27 @@ export default function TaskModal({ open, setOpen }) {
                           <Button variant='contained' style={{ marginRight: '5px', borderRadius: '0px' }}  > <TaskModal />
                             SAVE
                           </Button>
-                        </Box>
+                        </Box> */}
 
-                      </Box>
+                      {/* </Box> */}
+                    {/* </Box>  */}
 
-
-
+                    <Box mt={4} ml={4}>
+                   <SubtaskList/>
                     </Box>
+
+
+
+
+
+
                   </Box>
+
+
+
+
+
+
 
                 </Box>
 
