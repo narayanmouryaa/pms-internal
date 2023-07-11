@@ -137,8 +137,10 @@ export default function MiniDrawer() {
               '& .MuiDrawer-paper': {
                 width: drawerWidth,
                 boxSizing: 'border-box',
-                position: 'absolute',
+                // position: 'absolute',
                 left:'38px',
+                position:'relative',
+                display:'flex',
                 height: '100vh',
               },
             }}
