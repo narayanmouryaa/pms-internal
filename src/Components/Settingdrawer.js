@@ -39,7 +39,7 @@ export default function Settingdrawer() {
                         width: drawerWidth,
                         position:'relative',
                         display:'flex',
-                        left:'20px',
+                        left:'60px',
                         flexShrink: 0,
                         '& .MuiDrawer-paper': {
                             width: drawerWidth,
