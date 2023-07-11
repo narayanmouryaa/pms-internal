@@ -15,6 +15,7 @@ import Login from './Components/Login';
 import ForgotPassword from './Components/ForgotPassword';
 
 
+
 function App() {
   return (
     <>
@@ -27,22 +28,23 @@ function App() {
       <SwipeableTemporaryDrawer /> */}
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login/>} />
+          <Route path="/" element={<Login />} />
 
           <Route path="Listview" element={<Listview />} />
-          <Route path="ForgotPassword" element={<ForgotPassword/>}></Route>      
+          <Route path="ForgotPassword" element={<ForgotPassword />}></Route>
           {/* <Route path="Listview" element={}></Route> */}
           <Route path="Gridview" element={<Gridview />}></Route>
           {/* <Route index element={<ResponsiveDrawer  />} ></Route>*/}
           {/* <Route path="*" element={<PersistentDrawerLeft/>}> </Route> */}
           <Route path="settings" element={<SettingPage />}></Route>
-          <Route path="/" element={<NavScrollExample />} />
+          {/* <Route path="/" element={<NavScrollExample />} /> */}
           {/* <Route path="blogs" element={<Fifthpage />}></Route> */}
           <Route path="drawer" element={<BasicCard />}></Route>
           <Route path="spacecard" element={<SpaceCard />}></Route>
           {/* <Route path="Createlist" element={<CustomizedDialogs />}></Route> */}
           {/* <Route path="Createfolder" element={<Folder />}></Route> */}
           {/* <Route path="TaskStatus" element={<TaskStatus />}></Route> */}
+         
         </Routes>
       </BrowserRouter>
     </>

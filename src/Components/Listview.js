@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavbarFixed from './NavBar';
 import ResponsiveDrawer from "./Fixedsidenav";
 // import { styled } from '@mui/material/styles';
@@ -16,8 +16,9 @@ import SquareIcon from '@mui/icons-material/Square';
 // import { yellow } from '@mui/material/colors';
 import TaskModal from './Taskmodal'
 import { Nav } from 'react-bootstrap';
-
 import SubtaskList from './Listviewtask';
+import UserModal from './Usermodal';
+
 
 
 
@@ -33,10 +34,10 @@ import SubtaskList from './Listviewtask';
 
 
 
-
-
 const Listview = () => {
   const [openModal, setOpenModal] = React.useState(false);
+  const [open, setOpen] = useState(false);
+
 
   return (
     <>
@@ -59,52 +60,29 @@ const Listview = () => {
 
               <Typography style={{ marginTop: '30px' }} >  <FormatListBulletedIcon /> List 1</Typography>
 
-              <Box style={{ display: 'flex', alignItems: "center" }} >
-                <SquareIcon style={{ color: '' }} />
-                <PersonAddIcon style={{ marginLeft: '10px', color: 'white', backgroundColor: 'black', borderRadius: '50%' }} />
-                <Nav.Link href="#" onClick={() => setOpenModal(true)}>
-                  <Button style={{ color: 'black', display: 'inline' }} >
-                    Task one
-                  </Button>
-                </Nav.Link>
+              <Box style={{ display: 'flex', alignItems: "center" }}>
+                <SquareIcon style={{ color: '' }}/>
+
+                
+                  
+                  <Nav.Link href="#"onClick={()=>setOpen(true)} >
+                    <Button >
+                      <PersonAddIcon  style={{ marginLeft: '10px', color: 'white', backgroundColor: 'black', borderRadius: '50%' }} />
+                    </Button>
+                    
+                  </Nav.Link>
+
+
+                  <Nav.Link href="#" onClick={() => setOpenModal(true)}>
+                    <Button style={{ color: 'black', display: 'inline' }} >
+                      Task one
+                    </Button>
+                  </Nav.Link>
 
               </Box>
-              {/* <Box style={{ display: 'flex', alignItems: "center" }} >
-                <SquareIcon style={{ color: 'yellow' }} />
-                < PersonAddIcon style={{ marginLeft: '10px', color: 'white', backgroundColor: 'black', borderRadius: '50%' }} />
-                <Nav.Link href="#" onClick={() => setOpenModal(true)}>
-                  <Button style={{ color: 'black', display: 'inline' }} >
-                    Task Two
-                  </Button>
-                </Nav.Link>
-
-              </Box> */}
-
-
-
-
-              {/* <Box style={{ display: 'flex', justifyContent: "space-between", alignItems: 'center', border: '1px solid blue', float: 'left', width: '70vw', height: '6vh' }}>
-                <Box style={{}}>
-                  <SquareIcon style={{ marginLeft: '10px', color: 'yellow' }} />
-                  <input type="text" placeholder='Enter Task' />
-                </Box>
-
-                <Box>
-                  <CalendarMonthIcon />
-                  <CalendarMonthIcon />
-                  < PersonAddIcon style={{ marginLeft: '10px', marginRight: '10px', color: 'white', backgroundColor: 'black', borderRadius: '50%' }} />
-
-
-                  <Button variant='contained' style={{ marginRight: '5px', borderRadius: '0px' }}  > <TaskModal />
-                    SAVE
-                  </Button>
-                </Box>
-
-              </Box> */}
-              <SubtaskList/>
+              <SubtaskList />
             </Box>
 
-            
           </Grid>
 
         </Grid>
@@ -112,6 +90,9 @@ const Listview = () => {
 
       </Box >
       <TaskModal open={openModal} setOpen={setOpenModal} />
+      <UserModal open={open} setOpen={setOpen} />
+
+
     </>
   );
 };
