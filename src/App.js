@@ -8,7 +8,7 @@ import SettingPage from './Components/settings';
 // import Mainpage from './Components/Mainpage';
 import Listview from './Components/Listview';
 import Gridview from './Components/Gridview';
-import SpaceCard from './Components/Spacecard';
+// import SpaceCard from './Components/Spacecard';
 // import CustomizedDialogs from './Components/Closecreatelist';
 // import Folder from './Components/Closefolder';
 import Login from './Components/Login';
@@ -40,7 +40,7 @@ function App() {
           {/* <Route path="/" element={<NavScrollExample />} /> */}
           {/* <Route path="blogs" element={<Fifthpage />}></Route> */}
           <Route path="drawer" element={<BasicCard />}></Route>
-          <Route path="spacecard" element={<SpaceCard />}></Route>
+          {/* <Route path="spacecard" element={<SpaceCard />}></Route> */}
           {/* <Route path="Createlist" element={<CustomizedDialogs />}></Route> */}
           {/* <Route path="Createfolder" element={<Folder />}></Route> */}
           {/* <Route path="TaskStatus" element={<TaskStatus />}></Route> */}
