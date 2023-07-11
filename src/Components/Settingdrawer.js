@@ -37,13 +37,15 @@ export default function Settingdrawer() {
                     className='draw_container'
                     sx={{
                         width: drawerWidth,
-                        position:'relative',
-                        display:'flex',
-                        left:'60px',
+
                         flexShrink: 0,
                         '& .MuiDrawer-paper': {
                             width: drawerWidth,
                             boxSizing: 'border-box',
+                            position: 'relative',
+                            display: 'flex',
+                            left: '60px',
+
                         },
                     }}
                     variant="persistent"
