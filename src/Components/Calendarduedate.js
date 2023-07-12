@@ -131,7 +131,7 @@ const CalendarIcon = () => {
           inline
         />
         <div>
-          <Button onClick={() => setAnchorEl(null)}>
+          <Button onClick={() => setAnchorEl(null)} style={{backgroundColor:'blue',color:'white',marginLeft:'10px'}}>
             Submit
           </Button>
         </div>

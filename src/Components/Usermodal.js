@@ -14,11 +14,11 @@ import {
   TableRow,
   Checkbox,
   Typography
-  
+
 } from '@mui/material';
 
 
-function UserModal({open, setOpen}) {
+function UserModal({ open, setOpen }) {
   // const [open, setOpen] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -43,11 +43,11 @@ function UserModal({open, setOpen}) {
 
   return (
     <div>
-      <Button variant="contained" onClick={() => setOpen(true)}>
-         Open Modal
-       </Button>
-    <Dialog open={open}  onClose={handleClose} maxWidth="sm" fullWidth>
-        <DialogTitle style={{display:'flex',justifyContent:'center'}}>User Details</DialogTitle>
+      {/* <Button variant="contained" onClick={() => setOpen(true)}>
+        Open Modal
+      </Button> */}
+      <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
+        <DialogTitle style={{ display: 'flex', justifyContent: 'center' }}>User Details</DialogTitle>
         <DialogContent>
           {!tableVisible ? (
             <>
@@ -79,92 +79,50 @@ function UserModal({open, setOpen}) {
             </>
           ) : (
             <TableContainer>
-              {/* <Table>
+
+              <Typography style={{ fontSize: '25px', fontWeight: '600' }}>Permission</Typography>
+              <Table style={{ border: '1px solid black' }}>
                 <TableHead>
-                  <TableRow>
-                    <TableCell>Name</TableCell>
-                    <TableCell>Email</TableCell>
-                    <TableCell>Password</TableCell>
-                    <TableCell>Password</TableCell>
+                  <TableRow style={{ border: '1px solid black' }}>
+                    <TableCell style={{ border: '1px solid black', fontWeight: '600', fontSize: '20px' }}>Permission Type</TableCell>
+                    <TableCell style={{ border: '1px solid black', fontWeight: '600', textAlign: 'center', fontSize: '20px' }}>View</TableCell>
+                    <TableCell style={{ border: '1px solid black', fontWeight: '600', textAlign: 'center', fontSize: '20px' }}>Add</TableCell>
+                    <TableCell style={{ border: '1px solid black', fontWeight: '600', textAlign: 'center', fontSize: '20px' }}>Edit</TableCell>
+                    <TableCell style={{ border: '1px solid black', fontWeight: '600', textAlign: 'center', fontSize: '20px' }}>Delete</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  <TableRow>
-                    <TableCell>{name}</TableCell>
-                    <TableCell>{email}</TableCell>
-                    <TableCell>{password}</TableCell>
+                  <TableRow style={{ border: '1px solid black' }}>
+                    <TableCell style={{ border: '1px solid black', fontWeight: '600', fontSize: '20px' }}>Space</TableCell>
+                    <TableCell style={{ border: '1px solid black' }}><Checkbox style={{ display: 'flex' }} /></TableCell>
+                    <TableCell style={{ border: '1px solid black' }}><Checkbox style={{ display: 'flex' }} /></TableCell>
+                    <TableCell style={{ border: '1px solid black' }}><Checkbox style={{ display: 'flex' }} /></TableCell>
+                    <TableCell style={{ border: '1px solid black' }}><Checkbox style={{ display: 'flex' }} /></TableCell>
+                  </TableRow>
+                  <TableRow style={{ border: '1px solid black' }}>
+                    <TableCell style={{ border: '1px solid black', fontWeight: '600', fontSize: '20px' }}>Folder</TableCell>
+                    <TableCell style={{ border: '1px solid black' }}><Checkbox style={{ display: 'flex' }} /></TableCell>
+                    <TableCell style={{ border: '1px solid black' }}><Checkbox style={{ display: 'flex' }} /></TableCell>
+                    <TableCell style={{ border: '1px solid black' }}><Checkbox style={{ display: 'flex' }} /></TableCell>
+                    <TableCell style={{ border: '1px solid black' }}><Checkbox style={{ display: 'flex' }} /></TableCell>
+                  </TableRow>
+                  <TableRow style={{ border: '1px solid black' }}>
+                    <TableCell style={{ border: '1px solid black', fontWeight: '600', fontSize: '20px' }}>Task</TableCell>
+                    <TableCell style={{ border: '1px solid black' }}><Checkbox style={{ display: 'flex' }} /></TableCell>
+                    <TableCell style={{ border: '1px solid black' }}><Checkbox style={{ display: 'flex' }} /></TableCell>
+                    <TableCell style={{ border: '1px solid black' }}><Checkbox style={{ display: 'flex' }} /></TableCell>
+                    <TableCell style={{ border: '1px solid black' }}><Checkbox style={{ display: 'flex' }} /></TableCell>
+                  </TableRow>
+
+                  <TableRow style={{ border: '1px solid black' }}>
+                    <TableCell style={{ border: '1px solid black', fontWeight: '600', fontSize: '20px' }}>Sub_task</TableCell>
+                    <TableCell style={{ border: '1px solid black' }}><Checkbox style={{ display: 'flex' }} /></TableCell>
+                    <TableCell style={{ border: '1px solid black' }}><Checkbox style={{ display: 'flex' }} /></TableCell>
+                    <TableCell style={{ border: '1px solid black' }}><Checkbox style={{ display: 'flex' }} /></TableCell>
+                    <TableCell style={{ border: '1px solid black' }}><Checkbox style={{ display: 'flex' }} /></TableCell>
                   </TableRow>
                 </TableBody>
-
-                <TableBody>
-                  <TableRow>
-                    <TableCell>{name}</TableCell>
-                    <TableCell>{email}</TableCell>
-                    <TableCell>{password}</TableCell>
-                  </TableRow>
-                </TableBody>
-
-                <TableBody>
-                  <TableRow>
-                  
-                    <TableCell>{name}</TableCell>
-                    <TableCell>{email}</TableCell>
-                    <TableCell>{password}</TableCell>
-                    
-                  </TableRow>
-                </TableBody>
-
-                <TableBody>
-                  <TableRow>
-                    <TableCell>{name}</TableCell>
-                    <TableCell>{email}</TableCell>
-                    <TableCell>{<Checkbox/>}</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table> */}
-<Typography style={{fontSize:'25px',fontWeight:'600'}}>Permission</Typography>
-    <Table style={{ border: '1px solid black' }}>
-      <TableHead>
-        <TableRow style={{ border: '1px solid black' }}>
-          <TableCell style={{ border: '1px solid black',fontWeight:'600',fontSize:'20px' }}>Permission Type</TableCell>
-          <TableCell style={{ border: '1px solid black',fontWeight:'600',textAlign:'center',fontSize:'20px'  }}>View</TableCell>
-          <TableCell style={{ border: '1px solid black',fontWeight:'600',textAlign:'center',fontSize:'20px'  }}>Add</TableCell>
-          <TableCell style={{ border: '1px solid black',fontWeight:'600',textAlign:'center',fontSize:'20px'  }}>Edit</TableCell>
-          <TableCell style={{ border: '1px solid black',fontWeight:'600',textAlign:'center',fontSize:'20px'  }}>Delete</TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        <TableRow style={{ border: '1px solid black' }}>
-          <TableCell style={{ border: '1px solid black',fontWeight:'600',fontSize:'20px' }}>Employee</TableCell>
-          <TableCell style={{ border: '1px solid black' }}><Checkbox  style={{display:'flex'}}/></TableCell>
-          <TableCell style={{ border: '1px solid black' }}><Checkbox  style={{display:'flex'}}/></TableCell>
-          <TableCell style={{ border: '1px solid black' }}><Checkbox  style={{display:'flex'}}/></TableCell>
-          <TableCell style={{ border: '1px solid black' }}><Checkbox  style={{display:'flex'}}/></TableCell>
-        </TableRow>
-        <TableRow style={{ border: '1px solid black' }}>
-          <TableCell style={{ border: '1px solid black',fontWeight:'600',fontSize:'20px' }}>Category</TableCell>
-          <TableCell style={{ border: '1px solid black' }}><Checkbox style={{display:'flex'}}/></TableCell>
-          <TableCell style={{ border: '1px solid black' }}><Checkbox style={{display:'flex'}}/></TableCell>
-          <TableCell style={{ border: '1px solid black' }}><Checkbox style={{display:'flex'}}/></TableCell>
-          <TableCell style={{ border: '1px solid black' }}><Checkbox style={{display:'flex'}}/></TableCell>
-        </TableRow>
-        <TableRow style={{ border: '1px solid black' }}>
-          <TableCell style={{ border: '1px solid black',fontWeight:'600',fontSize:'20px' }}>Task</TableCell>
-          <TableCell style={{ border: '1px solid black' }}><Checkbox style={{display:'flex'}}/></TableCell>
-          <TableCell style={{ border: '1px solid black' }}><Checkbox style={{display:'flex'}}/></TableCell>
-          <TableCell style={{ border: '1px solid black' }}><Checkbox style={{display:'flex'}}/></TableCell>
-          <TableCell style={{ border: '1px solid black' }}><Checkbox style={{display:'flex'}}/></TableCell>
-        </TableRow>
-
-        <TableRow style={{ border: '1px solid black' }}>
-          <TableCell style={{ border: '1px solid black',fontWeight:'600',fontSize:'20px' }}>Sub_task</TableCell>
-          <TableCell style={{ border: '1px solid black' }}><Checkbox style={{display:'flex'}}/></TableCell>
-          <TableCell style={{ border: '1px solid black' }}><Checkbox style={{display:'flex'}}/></TableCell>
-          <TableCell style={{ border: '1px solid black' }}><Checkbox style={{display:'flex'}}/></TableCell>
-          <TableCell style={{ border: '1px solid black' }}><Checkbox style={{display:'flex'}}/></TableCell>
-        </TableRow>
-      </TableBody>
-    </Table>
+              </Table>
 
 
 
@@ -174,12 +132,12 @@ function UserModal({open, setOpen}) {
         </DialogContent>
         <DialogActions>
           {!tableVisible ? (
-            <Button onClick={handleNext} fullWidth color="primary">
+            <Button onClick={handleNext} style={{ backgroundColor: 'blue', color: 'white' }} fullWidth color="primary">
               Next
             </Button>
           ) : (
-            <Button onClick={handleClose} fullWidth color="primary">
-              Close
+            <Button onClick={handleClose} style={{ backgroundColor: 'blue', color: 'white' }} fullWidth color="primary">
+              Submit
             </Button>
           )}
         </DialogActions>
