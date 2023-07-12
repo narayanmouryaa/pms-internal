@@ -9,15 +9,7 @@ import '../Assets/style/style.css';
 const FlagIconDropdown = () => {
   const [selectedFlag, setSelectedFlag] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
-
-
   
-
-
-
-
-
-
 
   const handleFlagSelect = (flag) => {
     setSelectedFlag(flag);

@@ -4,8 +4,6 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useState } from 'react';
-// import { Card } from '@mui/material';
-
 import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
@@ -18,24 +16,15 @@ import CloseIcon from '@mui/icons-material/Close';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
-
 import { TextField } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-// import Row from 'react-bootstrap/Row';
 import { Grid } from '@mui/material';
-// import AddIcon from '@mui/icons-material/Add';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-
-// import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-// import Box from '@mui/material/Box';
 import Switch from '@mui/material/Switch';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
-
 import SquareIcon from '@mui/icons-material/Square';
 import Stack from '@mui/material/Stack';
-// import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-// import { Close } from '@mui/icons-material';
 import ViewQuiltIcon from '@mui/icons-material/ViewQuilt';
 
 
@@ -212,14 +201,14 @@ const CommonModal = ({ open, handleClose }) => {
                                 </Box>
                                 <Box mt={3}>
                                     <FormControl variant="standard" sx={{ minWidth: 200 }}>
-                                        <InputLabel htmlFor="input-with-icon-adornment" style={{ fontWeight: "600", fontSize: '18px' }}>
-                                            Select user
+                                        <InputLabel htmlFor="input-with-icon-adornment" style={{ fontWeight: "600", fontSize: '18px'}}>
+                                            Select User
                                         </InputLabel>
                                         <Input
                                             id="input-with-icon-adornment"
                                             placeholder="Select User Name"
                                             type='text'
-                                            style={{ width: '550px' }}
+                                            style={{ width: '550px',marginTop:'50px' }}
                                             startAdornment={
                                                 <InputAdornment position="start" >
 
@@ -234,10 +223,6 @@ const CommonModal = ({ open, handleClose }) => {
                                                 </InputAdornment>
                                             }
                                         />
-
-
-
-
 
 
                                     </FormControl>
@@ -376,26 +361,7 @@ const CommonModal = ({ open, handleClose }) => {
                                     </Box>
                                 </Grid>
                             </Grid>
-
-
-
-                            {/* <Grid container spacing={2} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '25px', marginBottom: '60px' }}>
-                                <Grid item xs={8} >
-                                    <Box style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', border: '2px solid black', height: '60px' }}>
-                                        <Typography style={{ paddingRight: '150px' }}>
-                                            <FormatListBulletedIcon />
-                                            List View
-                                        </Typography>
-
-                                        <Switch
-                                            checked={checked}
-                                            onChange={handleChange}
-                                            inputProps={{ 'aria-label': 'controlled' }}
-                                        />
-
-                                    </Box>
-                                </Grid>
-                            </Grid> */}
+                          
 
 
                             {viewData === 4 ? <Button>Create</Button> : <Button variant='contained' style={{ width: '650px' }}

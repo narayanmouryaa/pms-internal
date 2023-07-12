@@ -4,7 +4,6 @@ import Avatar from '@mui/material/Avatar';
 import Checkbox from '@mui/material/Checkbox';
 import CalendarIcon from './subtaskstartcal';
 import PersonIcon from './UserIcon';
-// import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import FlagIconDropdown from './Drop';
 
@@ -13,6 +12,26 @@ import FlagIconDropdown from './Drop';
 const SubtaskList = () => {
     const [subtasks, setSubtasks] = useState([]);
     const [newSubtask, setNewSubtask] = useState('');
+
+
+    //     const [selectedDate, setSelectedDate] = useState(null);
+    //   const [addedDates, setAddedDates] = useState([]);
+
+    //   const handleDateChange = (date) => {
+    //     setSelectedDate(date);
+    //   };
+
+    //   const handleAddDate = () => {
+    //     if (selectedDate) {
+    //       setAddedDates([...addedDates, selectedDate]);
+    //       setSelectedDate('');
+    //     }
+    //   };
+
+
+
+
+
 
 
     const handleAddSubtask = () => {
@@ -28,30 +47,23 @@ const SubtaskList = () => {
     };
 
 
-
-
     return (
         <Box style={{ display: 'flex', alignItems: 'center', width: '700px' }}>
             <div>
                 <List>
                     {subtasks.map((subtask, index) => (
                         <ListItem key={index}>
-
-
                             <FormControlLabel
                                 control={<Checkbox />}
                                 onChange={() => handleDeleteSubtask(index)}
 
                             />
                             <Avatar sx={{ height: 30, width: 30 }}>A</Avatar>
-
-
                             <ListItemText primary={subtask} style={{ marginLeft: '10px' }} />
-
-
                         </ListItem>
                     ))}
                 </List>
+
                 <TextField
                     label="Add Subtask"
                     style={{ width: '700px' }}
@@ -62,7 +74,7 @@ const SubtaskList = () => {
                             <>
 
                                 <Tooltip title="Start Date" placement="top">
-                                    <CalendarIcon  />
+                                    <CalendarIcon />
                                 </Tooltip>
 
                                 <Tooltip title="Due Date" placement="top">
@@ -70,10 +82,10 @@ const SubtaskList = () => {
                                 </Tooltip>
 
                                 <PersonIcon />
-                                <FlagIconDropdown/>
+                                <FlagIconDropdown />
                                 <Button variant="contained" onClick={handleAddSubtask} sx={{ padding: '10px' }}>
-                    Save
-                </Button>
+                                    Save
+                                </Button>
 
                             </>
                         )
@@ -82,7 +94,7 @@ const SubtaskList = () => {
 
                 />
 
-                
+
             </div>
         </Box>
     );

@@ -4,6 +4,7 @@ import { TextField, Button, Card, Box } from '@mui/material';
 // import FormControlLabel from '@mui/material/FormControlLabel';
 
 // import Nav from 'react-bootstrap/Nav';
+import Grid from '@mui/material/Grid';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
@@ -19,18 +20,17 @@ const ForgotPassword = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log('Email:', email);
-    console.log('Password:', password);
+      // console.log('Email:', email);
+    // console.log('Password:', password);
   };
 
 
   const style = {
-    position: 'absolute',
+    position: 'relative',
     top: '40%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 500,
+    width: '35vw',
     bgcolor: 'background.paper',
     borderRadius: '10px',
     boxShadow: 8,
@@ -42,9 +42,11 @@ const ForgotPassword = () => {
     <div>
 
       <h2 style={{ textAlign: 'center', fontSize: '40px', marginTop: '60px' }} >Project Management System</h2>
-      <h5 style={{ textAlign: 'center', fontWeight: '600', fontSize: '15px',marginTop:'40px' }} >Forgot Password  </h5>
+      <h5 style={{ textAlign: 'center', fontWeight: '600', fontSize: '15px',marginTop:'40px',marginBottom:'40px' }} >Forgot Password  </h5>
 
-
+      <Grid container spacing={2}>
+    <Grid item lg={3} sm={4}></Grid>
+    <Grid item xs={12} lg={6}>
       <Card sx={style}>
 
         <form onSubmit={handleSubmit}>
@@ -59,29 +61,15 @@ const ForgotPassword = () => {
             required
             fullWidth
           />
-          {/* <TextField
-            label="Password"
-            type="password"
-            value={password}
-            onChange={handlePasswordChange}
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-          /> */}
-          {/* <Box style={{ display: 'flex', justifyContent: "flex-end" }}>
-            
-            <Button style={{ color: 'black', textTransform: 'none' }}  >              
-               Forgot Password?
-            </Button> 
-                           
-
-          </Box> */}
+                    
           <Button style={{ marginTop: '20px', height: '50px', textTransform: 'none' }} type="submit" variant="contained" color="primary" fullWidth>
             Reset Password
           </Button>
         </form>
       </Card>
+      </Grid>
+      <Grid item lg={3} sm={4}></Grid>
+      </Grid>
      
     </div>
     
